@@ -116,11 +116,12 @@ class FollowMesh_Admin {
 				'labels' => array(
 					'name' => __( 'Updates' ),
 					'menu_name' => __( 'Updates' ),
-					'singular_name' => __( 'Update', 'followmesh' )
+					'singular_name' => __( 'Update', 'followmesh' ),
+					'add_new' => __( 'Post New Update' )
 				),
 				'public' => true,
 				'has_archive' => true,
-				'rewrite' => 'updates',
+				'rewrite' => array( 'slug' => 'updates', 'with_front' => true ),
 				'show_in_menu' => 'followmesh'
 			)
 		);
