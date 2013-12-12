@@ -27,9 +27,6 @@
 if ( ! defined( 'WPINC' ) )
 	die;
 
-register_activation_hook( __FILE__, array( 'FollowMesh', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'FollowMesh', 'deactivate' ) );
-
 if ( is_admin() ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-followmesh-admin.php' );
 	add_action( 'plugins_loaded', array( 'FollowMesh_Admin', 'get_instance' ) );
