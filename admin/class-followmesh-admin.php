@@ -31,6 +31,7 @@ class FollowMesh_Admin {
 	 */
 	private function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
+		add_action( 'init', array( $this, 'create_post_type' ) );
 	}
 
 	/**
@@ -102,6 +103,27 @@ class FollowMesh_Admin {
 			require_once( plugin_dir_path( __FILE__ ) . 'includes/class-followmesh-feed-table.php' );
 
 		include_once( 'views/feed.php' );
+	}
+
+	/**
+	 * Register Update post type
+	 *
+	 * @since		 0.1.0
+	 */
+	public function create_post_type() {
+		register_post_type( 'followmesh_update',
+			array(
+				'labels' => array(
+					'name' => __( 'Updates' ),
+					'menu_name' => __( 'Updates' ),
+					'singular_name' => __( 'Update', 'followmesh' )
+				),
+				'public' => true,
+				'has_archive' => true,
+				'rewrite' => 'updates',
+				'show_in_menu' => 'followmesh'
+			)
+		);
 	}
 
 }
